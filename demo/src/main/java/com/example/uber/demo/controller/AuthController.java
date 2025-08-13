@@ -7,20 +7,15 @@ import com.example.uber.demo.dto.SignUpPassengerDto;
 import com.example.uber.demo.models.Passenger;
 import com.example.uber.demo.service.AuthService;
 import com.example.uber.demo.service.JwtService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseCookie;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -48,7 +43,7 @@ public class AuthController {
           if(authentication.isAuthenticated()){
               String jwtToken = jwtService.createToken(authRequestDto.getEmail());
               ResponseCookie cookie = ResponseCookie.from("JwtToken",jwtToken)
-                      .httpOnly(true)
+                      .httpOnly(true) // http only cookie not accessible using client side javascript.
                       .secure(false)
                       .path("/")
                       .maxAge(7*24*3600)
@@ -59,4 +54,11 @@ public class AuthController {
               throw new UsernameNotFoundException("User not found");
           }
     }
+
+    @GetMapping("/validate") // fetches jwt token
+    public void getToken(HttpServletRequest httpServletRequest){
+        System.out.println(httpServletRequest.getCookies());
+
+    }
+
 }
