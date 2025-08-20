@@ -1,6 +1,7 @@
 package com.example.uber.demo.dto;
 
-import com.example.uber.demo.models.Passenger;
+
+import com.example.entity.models.Passenger;
 import lombok.*;
 
 import java.util.Date;

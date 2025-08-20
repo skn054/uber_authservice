@@ -4,7 +4,6 @@ import com.example.uber.demo.dto.AuthRequestDto;
 import com.example.uber.demo.dto.AuthResponseDto;
 import com.example.uber.demo.dto.PassengerDto;
 import com.example.uber.demo.dto.SignUpPassengerDto;
-import com.example.uber.demo.models.Passenger;
 import com.example.uber.demo.service.AuthService;
 import com.example.uber.demo.service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;

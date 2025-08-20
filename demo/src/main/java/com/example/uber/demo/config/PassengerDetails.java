@@ -1,6 +1,7 @@
 package com.example.uber.demo.config;
 
-import com.example.uber.demo.models.Passenger;
+
+import com.example.entity.models.Passenger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

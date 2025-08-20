@@ -1,7 +1,7 @@
 package com.example.uber.demo.service;
 
+import com.example.entity.models.Passenger;
 import com.example.uber.demo.config.PassengerDetails;
-import com.example.uber.demo.models.Passenger;
 import com.example.uber.demo.repository.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

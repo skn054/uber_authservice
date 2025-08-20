@@ -1,7 +1,7 @@
 package com.example.uber.demo.dto;
 
 
-import com.example.uber.demo.models.Passenger;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
